@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTU SECONDARY SCHOOL</title>
+	<html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 250vh;
+            background-color: #f4f4f4;
+        }
+        .id-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .id-card {
+            width: 320px;
+            height: 320px;
+            border: 2px solid #000;
+            padding: 20px;
+            text-align: center;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .front {
+            background: linear-gradient(to bottom, blue, orange, white);
+        }
+        .back {
+            background: linear-gradient(to bottom, blue, orange, blue);
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 10px;
+        }
+        .left-logo { left: 10px; }
+        .right-logo { right: 10px; }
+		.school-logo {
+            display: block;
+            margin-bottom: 4 auto 25px auto;
+        }
+        }
+        .student-photo {
+            width: 250px;
+            height: 137px;
+            border-radius: 5px;
+            border: 2px solid #000;
+            margin-top: 10px;
+        }
+        .details {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .title { font-weight: bold; font-size: 16px; }
+        .btn {
+            margin-top: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .terms {
+            font-size: 12px;
+            text-align: left;
+            padding: 10px;
+        }
+        .terms ul {
+            padding-left: 15px;
+        }
+		.authorized {
+            text-align: center;
+            margin-top: 50px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="id-container">
+        <!-- Front Side -->
+        <div class="id-card front">
+            <img class="logo left-logo" src="images/left-logo.jpg" alt="Left Logo">
+            <img class="logo right-logo" src="images/right-logo.jpg" alt="Right Logo">
+            <h3>New Ireland</h3>
+			<h3>Department of Education</h3>
+            <img class="student-photo" id="student-photo" src="images/students-photo.jpg" alt="Student Photo">
+            <div class="details">
+                <p><strong>STUDENT NAME</strong></p>
+                <p><strong>STUDENT</strong></p>
+                <p>ID No:_____________</p>
+                <p>Grade:______________</p>
+                <p>Class:_______________</p>
+                <p>Year: ________________</p>
+            </div>
+        </div>
+        
+        <!-- Back Side -->
+        <div class="id-card back">
+		<div class="authorized">
+            <img class="logo" src="school-logo.png" alt="School Logo" width="80" height="80">
+			<p><strong>Authorized by:</strong></p>
+            <p><strong>Benson Apelis (C.E.O.)</strong></p>
+            <p><strong>TERMS & CONDITIONS</strong></p>
+            <div class="terms">
+                <ul>
+                    <li><strong>Identification:</strong> Carry the ID card at all times during schooling days for identification purposes.</li>
+                    <li><strong>Authorized Use:</strong> The ID card is strictly for official use and should not be shared or used for unauthorized purposes.</li>
+                </ul>
+            </div>
+            <p>Join: <span id="join-date">20/02/25</span></p>
+            <p>Expire: <span id="expire-date">20/02/26</span></p>
+        </div>
+        
+        <button class="btn" onclick="printID()">Print ID</button>
+    </div>
+
+    <script>
+        function generateID(name, id, grade, className, year, photo, joinDate, expireDate) {
+            document.getElementById("student-name").textContent = name;
+            document.getElementById("student-id").textContent = id;
+            document.getElementById("student-grade").textContent = grade;
+            document.getElementById("student-class").textContent = className;
+            document.getElementById("student-year").textContent = year;
+            document.getElementById("join-date").textContent = joinDate;
+            document.getElementById("expire-date").textContent = expireDate;
+            document.getElementById("student-photo").src = photo || "default.jpg";
+        }
+        
+        // Example Usage
+        generateID("Alice Smith", "S12345", "10", "B", "2025", "alice.jpg", "20/02/25", "20/02/26");
+        
+        function printID() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
